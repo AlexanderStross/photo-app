@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/mainnav' %>
+    <div id="page-content" class="container">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
   </body>
 </html>
