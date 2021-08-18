@@ -29,7 +29,7 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'font-awesome-rails'
 gem 'hirb'
 gem 'jquery-rails'
-gem 'strip'
+gem 'stripe', '~> 1.57', '>= 1.57.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
