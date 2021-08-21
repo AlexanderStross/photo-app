@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
       if resource.persisted?
         @payment = Payment.new({ email: params['user']['email'],
                                  token: params[:payment]['token'], user_id: resource.id })
-        flash[:error] = 'Please check registration errors' unless @payment.valid?
+        flash.now[:error] = 'Please check registration errors' unless @payment.valid?
 
         begin
           @payment.process_payment
@@ -15,6 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
         rescue Exception => e
           flash[:error] = e.message
           resource.destroy
+          puts e.message
           puts 'Payment Failed'
           render :new and return
         end
@@ -38,6 +39,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:payment)
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name payment])
   end
 end

@@ -18,6 +18,7 @@ ActiveStorage.start()
 
 // import the bootsrap library.
 import "bootstrap"
+import "credit_card_form"
 
 // import the app/assets/stylesheets/application.css
 // file from the previous step.
