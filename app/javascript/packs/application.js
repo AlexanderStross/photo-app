@@ -24,13 +24,14 @@ import "bootstrap"
 // import "../../assets/stylesheets/application"
 
 $(document).on('turbolinks:load', function() {
+
+  var show_error, stripeResponseHandler, submithHandler;
+
   window.setTimeout(function() {
     $('.alert').fadeTo(500, 0).slideUp(500, function() {
       $(this).remove();
     });
   }, 3000);
-
-  var show_error, stripeResponseHandler, submithHandler;
 
   submitHandler = function (event) {
     var $form = $(event.target);
