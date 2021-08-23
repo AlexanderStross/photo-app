@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :payment
   accepts_nested_attributes_for :payment
+  has_many :images
+
+  def full_name
+    return "#{first_name} #{last_name}" if first_name || last_name
+
+    'Anonymous'
+  end
 end

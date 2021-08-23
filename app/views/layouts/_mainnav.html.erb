@@ -12,6 +12,7 @@
       </ul>
 
       <ul class="navbar-nav ml-auto">
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <%= fa_icon 'user' %>
@@ -22,22 +23,22 @@
               <li><%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                 <%= fa_icon 'edit' %>
                 Edit Profile
-                <% end %></li>
+              <% end %>
+            </li>
           <% else %>
-          <li>
+            <li>
               <%= link_to('Sign In', new_user_session_path, class: 'dropdown-item', title: 'Sign In') %>
             </li>
           <% end %>
-    </ul>
-      <li class="nav-item">
-        <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger logout-button") if user_signed_in? %>
-      </li>
-    </ul>
-
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+        </ul>
+        <li class="nav-item">
+          <%= link_to('Sign out', destroy_user_session_path, method: :delete, class: "btn btn-danger logout-button") if user_signed_in? %>
+        </li>
+      </ul>
+      <div class="nav-item">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-outline-primary button' if !user_signed_in? %>
+      </div>
+      <!-- <form class="d-flex"> <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> <button class="btn btn-outline-success" type="submit">Search</button> </form> -->
+    </div>
   </div>
-</div>
 </nav>
