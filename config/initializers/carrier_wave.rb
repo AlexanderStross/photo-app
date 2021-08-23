@@ -1,5 +1,6 @@
-if Rails.env.production?
   Fog::Storage::AWS::DEFAULT_REGION = 'us-east-2
+if Rails.env.production?
+
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
